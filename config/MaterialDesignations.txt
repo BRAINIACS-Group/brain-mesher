@@ -1,0 +1,12 @@
+2 White Matter
+3 Gery matter
+4 Ventricles (optional)
+7 Cerebellum
+10 Midbrain (Thalamus)
+26 Basal Ganglia
+16 Brainstem
+17 Hippocampus
+18 Amygdala
+24 CSF  (optional)
+25 Tumor boundary  (optional)
+29 Edemic tumor tissue  (optional)

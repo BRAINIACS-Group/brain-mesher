@@ -1,0 +1,22 @@
+Input file: ./IOput/inaseg.mgz
+Write output to file: True
+Output written to: ./IOput/outfull_brain_model
+Output file types: vtk
+Coarsen: False
+model type configuration settings: basic_nocsf
+Add CSF: False
+Smooth global mesh: True
+Iterations: 6, co_effs: 0.6, -0.4
+Regions included: 
+	: brainstem: 16
+	: greymatter: 3, 42
+	: whitematter: 2, 41, 77
+	: corpuscallosum: 251, 252, 253, 254, 255
+	: basalganglia: 11, 50, 12, 51, 13, 52, 26, 58, 62, 30
+	: cerebellum: 7, 46, 8, 47
+	: thalamus: 10, 49, 28, 60
+	: hippocampus: 17, 53
+	: amygdala: 18, 54
+	: ventricles: 4, 5, 43, 44, 14, 15
+	: unused: 0, 63, 24, 85, 31
+COMPLETE

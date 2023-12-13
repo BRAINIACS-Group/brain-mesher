@@ -1,0 +1,6 @@
+numpy~=1.25.2
+vtk~=9.2.6
+nibabel~=5.1.0
+scipy~=1.11.2
+pyvista~=0.42.1
+python-dotenv~=1.0.0
