@@ -84,28 +84,4 @@ class PointCloud:
             if (location <= max(arr)):
                 indices, = np.where(location == arr)
                 points = self.pcd[indices,:]
-        return points          
-        
-    
-    def set_colour_map(self,d):
-        #TODO: Currently NOT functioning. Fix color map problem
-        blue = np.array([0, 0, 205 / 256, 1.0])
-        black = np.array([11 / 256, 11 / 256, 11 / 256, 1.0])
-        grey = np.array([189 / 256, 189 / 256, 189 / 256, 1.0])
-        yellow = np.array([255 / 256, 247 / 256, 0 / 256, 1.0])
-        red = np.array([1.0, 0.0, 0.0, 1.0])
-        green = np.array([0, 255/256, 0, 1.0])
-        purple = np.array([139 / 256, 0, 139/256, 1.0])
-        orange = np.array([255/256, 165/256, 0, 1.0])
-        light_blue = np.array([0, 191/256, 255/256, 1.0])
-        white = np.array([245/256, 245/256, 245/256, 1.0])
-        pink = np.array([255/256, 105/256, 180/256, 1.0])
-        
-        colorArray = [red, blue, green,  light_blue, yellow, purple, orange, grey, pink, white, black]
-        
-        # values_in_data = np.unique(d)
-        # values_in_data = values_in_data[values_in_data != 0]
-        # newcolors = np.zeros((256, 4))
-        # for count, value in enumerate(values_in_data):
-        #     newcolors[value,:] = colorArray[count]
-        # self.my_colormap = ListedColormap(newcolors)
+        return points
