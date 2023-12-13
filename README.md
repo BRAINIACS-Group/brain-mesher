@@ -8,7 +8,9 @@ Create a 3D brain mesh from mri images using only hexahedral elements.
 4. Convert point cloud to mesh of cube elements
 5. Use laplacian smothing on the surface and boundaries
 
-Run **'Brain_creation.py'** to create a brain model as:
+<img alt="Brain Models" src="/images/all_three_mdoels_transpar_bkgd.png?raw=true" title="Three Brain Model types"/>
+
+Run **'Brain_creation.py'** to create a brain model in the following file formats:
 * UCD file (to be imported in to dealii via the  GridIn::read_ucd function)
 * VTK file (to be viewed in Paraview)
 * Abaqus file (can be imported by selecting File->Import->Model)
