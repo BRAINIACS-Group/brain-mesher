@@ -24,7 +24,7 @@ def rotate_mesh(nodeMap, axis=0, degrees=90):
         coords[1] = round(newCoords[1],3)
         coords[2] = round(newCoords[2],3)
     
-def scale_mesh(nodeMap,scale=[1,1,1],reduce=True):
+def scale_mesh(nodeMap, scale=[1,1,1], reduce=True):
     if reduce:
         scale[0] = 1/scale[0]
         scale[1] = 1/scale[1]
@@ -35,7 +35,7 @@ def scale_mesh(nodeMap,scale=[1,1,1],reduce=True):
         coords[1] = coords[1]*scale[1]
         coords[2] = coords[2]*scale[2]
 
-def translate_mesh(nodeMap,distance=[1,1,1]):        
+def translate_mesh(nodeMap, distance=[1,1,1]):
     for n in nodeMap.values():
         coords = n.getCoords()
         coords[0] = coords[0]+distance[0]

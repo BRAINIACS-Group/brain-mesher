@@ -86,7 +86,7 @@ if __name__ == "__main__":
     # Model type options: basic_fullcsf, basic_partilacsf, basic_nocsf
     config = ConfigFile(file_path_in, file_in, file_path_out, file_out, model_type='basic_nocsf')
     mesh = run(config)
-    write(mesh, config.get('file_out_path'), config.get('fileout'))
+    write(mesh, config.get('file_out_path'), config.get('fileout'), config.get('fileout_types'))
 
 
 

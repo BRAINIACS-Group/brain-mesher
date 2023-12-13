@@ -30,5 +30,5 @@ class INode():
     def set_number(self, number):
         self.number = number
         
-class Node(INode):    
+class Node(INode):
     pass

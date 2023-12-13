@@ -41,7 +41,7 @@ class Converter:
 
 
 if __name__ == "__main__":
-    pathout = "C:/Users/grife/OneDrive/Documents/PostDoc/BrainModels/PythonScripts/BrainMesher/Atrophy"
-    filename = "OAS1_0004_MR1"
+    pathout = "../IOput/out/"
+    filename = "full_brain_model"
     Converter.convert_file(pathout, filename + "_VTK","vtk","ucd", filename)
 

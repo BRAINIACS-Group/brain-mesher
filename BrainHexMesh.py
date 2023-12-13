@@ -16,47 +16,6 @@ class BrainHexMesh:
     """
     A class used to facilitate 3D brain model creation.
 
-    Attributes
-    ----------
-    configured : boolean
-        Indicator whether config file has been given
-    material_labels : Material_Label
-         Object describing material labels to be used in model creation
-    config: Config
-        Configuration file for model creation
-
-    Methods
-    -------
-    config(configFile)
-        configures class according to prefernces in configFile
-    import_data(path="", file="")
-        imports data according to configuration file
-    preprocess(data, lesion=False, edemicTissue=1, unusedLabel="Unused")
-        performs all preprocessing steps:\n
-        1. Homogenize data labels\n
-        2. Corasen model, if requested\n
-        3. Clean voxel data\n
-        4. Clean lesion, if requested\n
-        4. Add layers of edemic tissue, if edemicTissue specified\n
-        5. Trim data\n
-        6. Identify and fill erroneous voids in the data\n
-        7. Add layers of CSF, if requested
-    make_mesh(pc_data)
-        create mesh from pointcloud data. Raises error if VOXEL_SIZE has not been set
-    clean_mesh(mesh,wm=True)
-        cleans inputed mesh to ensure better smoothing and remove erroneously connected edges.
-        cleans outer boundary, grey matter and, if wm=True, white matter boundary
-    createCSFBoundary(mesh,elementNUmber)
-        creates boundary elements on CSF with element material= elementNUmber
-    add_region(cc_data,current_data, region_value)
-        overwrite current_data with data given in cc_data and replaces label with region_value
-    smooth_mesh(mesh)
-        performs Laplacian smoothing of mesh based on config file preferences.
-        smoothing options include: specific regional smoothing, smoothing boundar exclusind CSF, global outer mesh smoothing
-    write_to_file(mesh)
-        write mesh data to file accordign to filetypes specifed in config file
-    __validCSFBoundary(mats), private
-        method to determine if row of elements is valid for use as a boundary csf element
     """
     
     def __init__(self, configFile):

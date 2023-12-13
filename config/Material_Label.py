@@ -67,9 +67,6 @@ class Material_Label:
 
     def updateLabelInMap(self, name, numbers):
 
-        if not (hasattr(self, "labelsMap")):
-            self.create_labels_map()
-
         name = name.lower()
 
         storedLabelValues = []
@@ -106,9 +103,6 @@ class Material_Label:
             number determining if label name was added to lists. 0 = success, otherwise failed.
 
         """
-        if not (hasattr(self, "labelsMap")):
-            self.create_labels_map()
-
         name = name.lower()
 
         storedLabelValues = []
@@ -132,12 +126,12 @@ class Material_Label:
         if (self.labelsMap.get(name,False)):
             labelsArr = self.labelsMap[name]
         else:
-            self.labelsMap[name] = labelsArr;     
-        
-        labelsArr += list(numbers);
+            self.labelsMap[name] = labelsArr
+
+        labelsArr += list(numbers)
         for n in numbers:
             self.inverseLabelsMap[n] = name
-        return 0;  
+        return 0
     
     def get_homogenized_labels_map(self):
         """
@@ -192,5 +186,5 @@ class Material_Label:
                                 if not unused_values.count(data_value):
                                     unused_values.append(data_value)
         self.addLabelToMap("unused",unused_values)
-        return newData;
+        return newData
             

@@ -266,10 +266,6 @@ class UCDReader(BaseReader,IReader):
         """
         Write nodes in the vtk format:
             coord1 coord2 ... coordn
-        Parameters
-        ----------
-        renumber : boolean
-            deteremines whetheer the node numbers shoudl be renumbered or not.
         """
         node_map = {}
         for i in range(self.num_nodes):
@@ -320,10 +316,6 @@ class VTKReader(BaseReader, IReader):
         """
         Write nodes in the vtk format:
             coord1 coord2 ... coordn
-        Parameters
-        ----------
-        renumber : boolean
-            deteremines whetheer the node numbers shoudl be renumbered or not.
         """
         num_points = self.grid.GetNumberOfPoints()
         node_map = {}

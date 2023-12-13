@@ -1,7 +1,7 @@
 Input file: ./IOput/inaseg.mgz
 Write output to file: True
 Output written to: ./IOput/outfull_brain_model
-Output file types: vtk
+Output file types: vtk, ucd, abaqus
 Coarsen: False
 model type configuration settings: basic_nocsf
 Add CSF: False

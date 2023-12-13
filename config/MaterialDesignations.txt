@@ -9,4 +9,3 @@
 18 Amygdala
 24 CSF  (optional)
 25 Tumor boundary  (optional)
-29 Edemic tumor tissue  (optional)
