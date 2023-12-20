@@ -12,13 +12,18 @@ class InverseMaze(Maze):
     def __init__(self, grid):
         super().__init__(grid);
         current_dimensions = self.grid.shape
-        point = 1;
-        count = 0;
+        point = 1
+        count = 0
         while(point != 0):
-            xEnd = int((current_dimensions[0] + count)/2);
-            yEnd = int((current_dimensions[1] + count)/2);
-            zEnd = int((current_dimensions[2] + count)/2);
-            point = self.grid[xEnd,yEnd,zEnd]
+            xEnd = int((current_dimensions[0] + count)/2)
+            ends = np.where(grid[xEnd, :, :] == 0)
+            endloc = int(len(ends[0])/2)
+
+            yEnd = ends[0][endloc]
+            zEnd = ends[1][endloc]
+
+            point = self.grid[xEnd, yEnd, zEnd]
+            count += 2
         self.end = [xEnd,yEnd,zEnd]
     
     def get_end_point(self,x,y,z):

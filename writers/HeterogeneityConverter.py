@@ -1,5 +1,5 @@
 from enum import Enum
-from common.brain_regions import BRAINREGIONNUMBERS
+from common.brain_regions import BRAINREGIONNUMBERS, NINEREGIONNUMBERS
 
 class Heterogeneity(Enum):
     ONER = 1
@@ -37,20 +37,20 @@ class MaterialsConverter:
                 new_mats.append(self.converter[m])
             e.setMaterial(new_mats)
 
-    def brain_stem_converter(self):
+    def brain_stem_converter(self, number):
         for n in self.materials:
             if 173 <= n <= 178:
-                self.converter[n] = 16
+                self.converter[n] = number
 
-    def basal_ganglia_converter(self):
+    def basal_ganglia_converter(self, number):
         for n in self.materials:
             if 11 <= n <= 13:
-                self.converter[n] = 26
+                self.converter[n] = number
 
-    def cortex_converter(self):
+    def cortex_converter(self, number):
         for n in self.materials:
             if n > 1000:
-                self.converter[n] = 3
+                self.converter[n] = number
 
 class NineRegionConverter(MaterialsConverter):
 
@@ -58,9 +58,9 @@ class NineRegionConverter(MaterialsConverter):
 
     def __init__(self):
         super().__init__()
-        super().basal_ganglia_converter()
-        super().cortex_converter()
-        super().brain_stem_converter()
+        super().basal_ganglia_converter(NINEREGIONNUMBERS.BG.value)
+        super().cortex_converter(NINEREGIONNUMBERS.C.value)
+        super().brain_stem_converter(NINEREGIONNUMBERS.BS.value)
         for n in self.materials:
             if not self.converter.get(n, False):
                 self.converter[n] = n
@@ -83,15 +83,15 @@ class HomogenousConverter(MaterialsConverter):
 
     def __init__(self):
         super().__init__()
-        super().basal_ganglia_converter()
-        super().cortex_converter()
-        super().brain_stem_converter()
+        super().basal_ganglia_converter(NINEREGIONNUMBERS.C.value)
+        super().cortex_converter(NINEREGIONNUMBERS.C.value)
+        super().brain_stem_converter(NINEREGIONNUMBERS.C.value)
         for n in self.materials:
             if not self.converter.get(n, False):
                 if n == 24:
                     self.converter[n] = 24
                 else:
-                    self.converter[n] = 3
+                    self.converter[n] = NINEREGIONNUMBERS.C.value
 
 
 
@@ -101,16 +101,16 @@ class TwoRegionConverter(MaterialsConverter):
 
     def __init__(self):
         super().__init__()
-        super().basal_ganglia_converter()
-        super().cortex_converter()
-        super().brain_stem_converter()
+        super().basal_ganglia_converter(NINEREGIONNUMBERS.CR.value)
+        super().cortex_converter(NINEREGIONNUMBERS.C.value)
+        super().brain_stem_converter(NINEREGIONNUMBERS.CR.value)
         white_matter = [2,7,10,26,16,17,18,251]
         for n in self.materials:
-            if not self.converter.get(n, False):                
-                if n == 3:
-                    self.converter[n] = 3
+            if not self.converter.get(n, False):
+                if n == NINEREGIONNUMBERS.CR.value:
+                    self.converter[n] = NINEREGIONNUMBERS.C.value
                 elif white_matter.count(n):
-                    self.converter[n] = 2
+                    self.converter[n] = NINEREGIONNUMBERS.CR.value
                 else:
                     self.converter[n] = 24
 
@@ -121,20 +121,20 @@ class FourRegionConverter(MaterialsConverter):
 
     def __init__(self):
         super().__init__()
-        super().basal_ganglia_converter()
-        super().cortex_converter()
-        super().brain_stem_converter()
+        super().basal_ganglia_converter(NINEREGIONNUMBERS.CB.value)
+        super().cortex_converter(NINEREGIONNUMBERS.C.value)
+        super().brain_stem_converter(NINEREGIONNUMBERS.CB.value)
         sub_cortical = [7,10,26,16,17,18]
         for n in self.materials:
-            if not self.converter.get(n, False):                
-                if n == 3:
-                    self.converter[n] = 3
-                elif n == 2:
-                    self.converter[n] = 2
-                elif n == 251:
-                    self.converter[n] = 251
+            if not self.converter.get(n, False):
+                if n == NINEREGIONNUMBERS.C.value:
+                    self.converter[n] = NINEREGIONNUMBERS.C.value
+                elif n == NINEREGIONNUMBERS.CR.value:
+                    self.converter[n] = NINEREGIONNUMBERS.CR.value
+                elif n == NINEREGIONNUMBERS.CC.value:
+                    self.converter[n] = NINEREGIONNUMBERS.CC.value
                 elif sub_cortical.count(n):
-                    self.converter[n] = 7
+                    self.converter[n] = NINEREGIONNUMBERS.CB.value
                 else:
                     self.converter[n] = 24
 
