@@ -259,8 +259,8 @@ class Mesh:
                 newNode = int(i + (elementZ+1)*(elementY+1)) 
                 if not self.nodes.get(newNode,False):
                     coords = self.__calculate_node_coords(elementX,elementY,elementZ,newNode,voxel_size)
-                    node = Node(newNode,coords);
-                    self.nodes[newNode] = Node(newNode,coords)
+                    node = Node(newNode,coords)
+                    self.nodes[newNode] = node
                 else:
                     node = self.nodes[newNode]
                 element_ica_tmp.append(node)
